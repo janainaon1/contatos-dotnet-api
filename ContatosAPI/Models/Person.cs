@@ -5,8 +5,8 @@
         public Person(string name, string lastName, string cpf)
         {
             Id = Guid.NewGuid();
-            Name = name;
-            LastName = lastName;
+            Name = name.ToUpper().Trim();
+            LastName = lastName.ToUpper().Trim();
             Cpf = cpf;
             PhoneContacts = new List<PhoneContact>();
             EmailContacts = new List<EmailContact>();
@@ -23,8 +23,8 @@
 
         public void Update(string name, string lastName, string cpf)
         {
-            Name = name;
-            LastName = lastName;
+            Name = name.ToUpper().Trim();
+            LastName = lastName.ToUpper().Trim();
             Cpf = cpf;
         }
     }
