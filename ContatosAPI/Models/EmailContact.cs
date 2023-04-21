@@ -5,7 +5,7 @@
         public EmailContact(string emailAddress, Guid personId)
         {
             Id = Guid.NewGuid();
-            EmailAddress = emailAddress;
+            EmailAddress = emailAddress.ToLower().Trim();
             PersonId = personId;
         }
 
@@ -15,7 +15,7 @@
 
         public void Update(string emailAddress)
         {
-            EmailAddress = emailAddress;
+            EmailAddress = emailAddress.ToLower().Trim();
         }
     }
 }

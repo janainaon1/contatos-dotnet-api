@@ -4,13 +4,14 @@ namespace ContatosAPI.DTOs
 {
     public class EmailContactDTO
     {
-        [Required]
+        [Required(ErrorMessage = "Id é obrigatório")]
         public Guid Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "E-mail é obrigatório")]
+        [MaxLength(100, ErrorMessage = "E-mail deve conter no máximo 100 caracteres.")]
         public string EmailAddress { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "PersonId é obrigatório")]
         public Guid PersonId { get; set; }
     }
 }
