@@ -1,12 +1,16 @@
-﻿namespace ContatosAPI.Models
+﻿using System.Globalization;
+
+namespace ContatosAPI.Models
 {
     public class Person
     {
         public Person(string name, string lastName, string cpf)
         {
+            TextInfo textCultura = new CultureInfo("pt-BR", false).TextInfo;
+
             Id = Guid.NewGuid();
-            Name = name.ToUpper().Trim();
-            LastName = lastName.ToUpper().Trim();
+            Name = textCultura.ToTitleCase(name.ToLower()).Trim();
+            LastName = textCultura.ToTitleCase(lastName.ToLower()).Trim();
             Cpf = cpf;
             PhoneContacts = new List<PhoneContact>();
             EmailContacts = new List<EmailContact>();
@@ -23,8 +27,10 @@
 
         public void Update(string name, string lastName, string cpf)
         {
-            Name = name.ToUpper().Trim();
-            LastName = lastName.ToUpper().Trim();
+            TextInfo textCultura = new CultureInfo("pt-BR", false).TextInfo;
+
+            Name = textCultura.ToTitleCase(name.ToLower()).Trim();
+            LastName = textCultura.ToTitleCase(lastName.ToLower()).Trim();
             Cpf = cpf;
         }
     }
